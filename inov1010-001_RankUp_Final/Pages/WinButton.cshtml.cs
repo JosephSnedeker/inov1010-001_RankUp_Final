@@ -36,7 +36,6 @@ namespace inov1010_001_RankUp_Final.Pages
             cnn.Close();
             
             
-          
         }
     }
 }
