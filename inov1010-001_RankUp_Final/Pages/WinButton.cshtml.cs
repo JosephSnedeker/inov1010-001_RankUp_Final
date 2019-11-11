@@ -27,9 +27,10 @@ namespace inov1010_001_RankUp_Final.Pages
             SqlConnection cnn = new SqlConnection(connectionString);
 
             cnn.Open();
-            string sql = "Update AspNetUsers set UserName = '" + "Test" + "' where UserName=1";
+            string sql = "UPDATE AspNetUsers SET UserName= @test";
             SqlCommand command = new SqlCommand(sql, cnn);
             SqlDataAdapter adapter = new SqlDataAdapter();
+            command.Parameters.AddWithValue("@test", scoreplayera);
             adapter.UpdateCommand = command;
             adapter.UpdateCommand.ExecuteNonQuery();
             command.Dispose();
