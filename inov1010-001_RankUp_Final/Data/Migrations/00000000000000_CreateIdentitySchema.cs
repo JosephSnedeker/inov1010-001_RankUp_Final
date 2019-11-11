@@ -41,7 +41,7 @@ namespace inov1010_001_RankUp_Final.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    CurrentRank = table.Column<int>(nullable: false)
+                    CurrentRank = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

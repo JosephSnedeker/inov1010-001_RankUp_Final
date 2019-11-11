@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Configuration;
 
 namespace inov1010_001_RankUp_Final.Pages
 {
@@ -19,7 +20,7 @@ namespace inov1010_001_RankUp_Final.Pages
 
         public void OnGet()
         {
-
+          
         }
     }
 }

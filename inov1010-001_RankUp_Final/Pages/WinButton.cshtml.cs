@@ -20,8 +20,20 @@ namespace inov1010_001_RankUp_Final.Pages
     public class WinButtonModel : PageModel
     {
         
+        
         public void OnPost(int scoreplayera, int scoreplayerb)
         {
+            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=aspnet-inov1010_001_RankUp_Final-53bc9b9d-9d6a-45d4-8429-2a2761773502;Trusted_Connection=True;MultipleActiveResultSets=true";
+            SqlConnection cnn = new SqlConnection(connectionString);
+
+            cnn.Open();
+            string sql = "Update AspNetUsers set UserName = '" + "Test" + "' where UserName=1";
+            SqlCommand command = new SqlCommand(sql, cnn);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+            cnn.Close();
             
             
           
