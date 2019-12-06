@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
+/*
 namespace inov1010_001_RankUp_Final
 {
     public class Bracket
     {
         string name;
         int playerNum;
-        List<User> users = new List<User>();
+        public List<User> users = new List<User>();
         User winner;
-        
+        public List<Match> matchList;
 
 
-        Bracket(string name, int playerNum, List<User> users)
+
+
+        public Bracket(string name, int playerNum, List<User> users)
         {
             this.name = name;
             this.playerNum = playerNum;
@@ -35,11 +37,11 @@ namespace inov1010_001_RankUp_Final
                 users.Add(new User("BYE", 999999));
                 playerNum++;
             }
-            List<Match> matchList = new List<Match>();
+            matchList = new List<Match>();
 
             for (int i = 0; i < playerNum/2; i++)//creates round one
             {
-                matchList.Add(new Match(new List<User> { users[i], users[playerNum - i]}));
+                matchList.Add(new Match(new List<User> { users[i], users[playerNum - 1 - i]}));
             }
 
             for (int i = 0; i < matchList.Count; i++) //populates rest of bracket
@@ -47,10 +49,16 @@ namespace inov1010_001_RankUp_Final
                 if (i % 2 != 0)
                 {
                     matchList[i-1].nextMatch = matchList[i].nextMatch = new Match();
+                    matchList.Add(matchList[i].nextMatch);
 
                 }
             }
         }
+        public List<User> GetUsers()
+        {
+            return users;
+        }
         
     }
 }
+*/
