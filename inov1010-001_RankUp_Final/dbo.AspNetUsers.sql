@@ -14,7 +14,7 @@
     [LockoutEnd]           DATETIMEOFFSET (7) NULL,
     [LockoutEnabled]       BIT                NOT NULL,
     [AccessFailedCount]    INT                NOT NULL,
-    [Rank] INT NULL, 
+    [CurrentRank] FLOAT NULL, 
     CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

@@ -123,6 +123,7 @@ namespace inov1010_001_RankUp_Final.Data.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
+                    
 
                     b.HasKey("Id");
 

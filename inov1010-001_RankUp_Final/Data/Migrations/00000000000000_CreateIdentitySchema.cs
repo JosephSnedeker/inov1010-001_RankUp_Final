@@ -26,6 +26,7 @@ namespace inov1010_001_RankUp_Final.Data.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
+                    CurrentRank = table.Column<int>(nullable: true),
                     Id = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
@@ -40,8 +41,8 @@ namespace inov1010_001_RankUp_Final.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    CurrentRank = table.Column<int>(nullable: true)
+                    AccessFailedCount = table.Column<int>(nullable: false)
+                    
                 },
                 constraints: table =>
                 {
@@ -192,6 +193,11 @@ namespace inov1010_001_RankUp_Final.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "RankIndex",
+                table: "AspNetUsers",
+                column: "CurrentRank");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

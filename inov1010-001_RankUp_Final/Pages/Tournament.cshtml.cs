@@ -7,13 +7,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text;
 
 
+
 namespace inov1010_001_RankUp_Final.Pages
 {
     public class TournamentModel : PageModel
     {
         public ActionResult OnGet()
         {
-            Tournament tournament = new Tournament(5);
+            
+            Tournament tournament = new Tournament(3);
             int match_white_span;
             int match_span;
             int position_in_match_span;
@@ -108,9 +110,14 @@ namespace inov1010_001_RankUp_Final.Pages
                 HTMLTable.AppendLine("    </tr>");
             }
             
-
             return Content(HTMLTable.ToString(), "text/html");
+
         }
+
+            
+
+            
+        
         
 
 

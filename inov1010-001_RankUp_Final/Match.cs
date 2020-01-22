@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 
 namespace inov1010_001_RankUp_Final
 {
+    
     public class Match
     {
         public int id { get; set; }
-        public int teamid1 { get; set; }
-        public int teamid2 { get; set; }
+        public string teamid1 { get; set; }
+        public string teamid2 { get; set; }
         public int roundnumber { get; set; }
-        public int winner { get; set; }
+        public string winner { get; set; }
 
-        public Match(int id, int teamid1, int teamid2, int roundnumber, int winner)
+        public Match(int id, string teamid1, string teamid2, int roundnumber, string winner)
         {
             this.id = id;
             this.teamid1 = teamid1;
@@ -53,20 +54,47 @@ namespace inov1010_001_RankUp_Final
 
         private void GenerateTournamentResults(int rounds)
         {
-            //Random WinnerRandomizer = new Random();
+            List<string> names = new List<string>();
+            names.Add("James");
+            names.Add("Tommy");
+            names.Add("Joe");
+            names.Add("Tony");
+            names.Add("Lexi");
+            names.Add("Jared");
+            names.Add("Bob");
+            names.Add("Rebecca");
+            names.Add("Angus");
+            names.Add("Anthony");
+            names.Add("Cleopatra");
+            names.Add("David");
+            names.Add("Kevin");
+            names.Add("Megan");
+            names.Add("Rachell");
+            names.Add("Robert");
+            names.Add("Link");
+            names.Add("Sheik");
+            names.Add("Zelda");
+            names.Add("Thomas");
+            names.Add("Joseph");
+            names.Add("Mang0");
+            names.Add("Scarlet");
+            names.Add("Brad");
+            names.Add("Michael");
+            
+            Random WinnerRandomizer = new Random();
 
             for (int round = 1, match_id = 1; round <= rounds; round++)
             {
                 int matches_in_round = 1 << (rounds - round);
                 for (int round_match = 1; round_match <= matches_in_round; round_match++, match_id++)
                 {
-                    int team1_id;
-                    int team2_id;
-                    int winner;
+                    string team1_id;
+                    string team2_id;
+                    string winner;
                     if (round == 1)
                     {
-                        team1_id = (match_id * 2) - 1;
-                        team2_id = (match_id * 2);
+                        team1_id = names[WinnerRandomizer.Next(0,19)];
+                        team2_id = names[WinnerRandomizer.Next(0, 19)];
                     }
                     else
                     {
@@ -75,7 +103,11 @@ namespace inov1010_001_RankUp_Final
                         team1_id = this.TournamentRoundMatches[round - 1][match1].winner;
                         team2_id = this.TournamentRoundMatches[round - 1][match2].winner;
                     }
-                    //winner = (WinnerRandomizer.Next(1, 3) == 1) ? team1_id : team2_id;
+                    if (true)
+                    {
+
+                    }
+                    winner = (WinnerRandomizer.Next(1, 3) == 1) ? team1_id : team2_id;
                     this.AddMatch(new Match(match_id, team1_id, team2_id, round, winner));
                 }
             }
@@ -84,6 +116,8 @@ namespace inov1010_001_RankUp_Final
         
     }
 }
+
+
 
 
 /*
@@ -142,5 +176,7 @@ public class Match
 
     }
 }
-}
-*/
+
+
+
+    */
